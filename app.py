@@ -151,12 +151,11 @@ def store():
     return "No se encontro imagen"  
 
 def insertJob(id_j):
-    
-    now = datetime.now()
-    new_jobs = Jobs(name_job=prs, estatus='process', end_time='2022-01-01',job_id=id_j)
-    session.add(new_jobs)
-    session.commit()
-    i = i + 1
+    for prs in process:
+        now = datetime.now()
+        new_jobs = Jobs(name_job=prs, estatus='process', end_time='2022-01-01',job_id=id_j)
+        session.add(new_jobs)
+        session.commit()
 
 def updateStatusJob(id_job, name_job):
     now = datetime.now()
@@ -165,7 +164,6 @@ def updateStatusJob(id_job, name_job):
         i.estatus = 'success'
         i.end_time = now
         session.commit()
-
     
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=4000)
