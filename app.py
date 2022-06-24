@@ -74,7 +74,7 @@ def task_in_imge(t):
     updateStatusJob(get_current_job().id, process[0])
     
     flip_img = image_file.transpose(Image.FLIP_TOP_BOTTOM) # voltear vertical
-    flip_img.save(path2+'/rotar_'+pick_name)
+    flip_img.save(path2+'/vol_'+pick_name)
     
     updateStatusJob(get_current_job().id, process[3])
  
